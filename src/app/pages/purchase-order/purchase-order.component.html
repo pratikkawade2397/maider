@@ -1,0 +1,78 @@
+<ng-template #suffixTemplate>
+    <i></i>
+</ng-template>
+<form nz-form [formGroup]="purchaseOrderForm" [nzLayout]="'vertical'" class="ant-advanced-search-form">
+    <!-- <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="orderNo">Purchase Order No</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Purchase Order No">
+                    <input nz-input placeholder="Enter Purchase Order No" formControlName="orderNo" id="orderNo">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div> -->
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="companyId">Select Company</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Company">
+                    <nz-select [nzSuffixIcon]="suffixTemplate" nzShowSearch nzAllowClear
+                        nzPlaceHolder="Select a Company" formControlName="companyId" id="companyId"
+                        (ngModelChange)="onCompanyChange()">
+                        <nz-option *ngFor="let item of companyOptions" [nzLabel]="item.label" [nzValue]="item.value">
+                        </nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="productId">Select Product</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Product">
+                    <nz-select [nzSuffixIcon]="suffixTemplate" nzShowSearch nzAllowClear [nzLoading]="isCompanySelected"
+                        nzPlaceHolder="Select a Product" formControlName="productId" id="productId" (ngModelChange)="setProductRate()">
+                        <nz-option *ngFor="let item of productOptions" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="rate">Rate</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Rate">
+                    <input nz-input placeholder="Enter Rate" formControlName="rate" id="rate">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="quantity">Quantity</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Quantity">
+                    <input type="number" nz-input placeholder="Enter Quantity" formControlName="quantity" id="quantity">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="total">Total Price</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Quantity">
+                    <input type="number" nz-input formControlName="total" id="total">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+</form>
+<div class="form-actions">
+    <button nz-button nzType="primary" [nzLoading]="isSubmit" (click)="onSubmit()">
+        <span>Save</span>
+    </button>
+</div>

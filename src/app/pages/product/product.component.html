@@ -1,0 +1,42 @@
+<ng-template #suffixTemplate>
+    <i></i>
+  </ng-template>
+<form nz-form [formGroup]="productForm" [nzLayout]="'vertical'" class="ant-advanced-search-form">
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="name">Product Name</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Product Name">
+                    <input nz-input placeholder="Enter Product Name" formControlName="name" id="name">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="companyId">Select a Company</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Company">
+                    <nz-select [nzSuffixIcon]="suffixTemplate" nzShowSearch nzAllowClear nzPlaceHolder="Select a Company"
+                        formControlName="companyId" id="companyId" [nzOptions]="companyOptions">
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="cost">Product Cost</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Product Cost">
+                    <input nz-input placeholder="Enter Product Cost" formControlName="cost" id="cost">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+</form>
+<div class="form-actions">
+    <button nz-button nzType="primary" [nzLoading]="isSubmit" (click)="onSubmit()">
+        <span>Save</span>
+    </button>
+</div>

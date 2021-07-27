@@ -1,0 +1,27 @@
+<form nz-form [formGroup]="companiesForm" [nzLayout]="'vertical'" class="ant-advanced-search-form">
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="name">Company Name</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid Company Name">
+                    <input nz-input placeholder="Enter Company Name" formControlName="name" id="name">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="gst">GST</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid GST">
+                    <input nz-input placeholder="Enter GST" formControlName="gst" id="gst">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+</form>
+<div class="form-actions">
+    <button nz-button nzType="primary" [nzLoading]="isSubmit" (click)="onSubmit()">
+        <span>Save</span>
+    </button>
+</div>
